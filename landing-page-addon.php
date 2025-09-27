@@ -41,7 +41,7 @@ function lgpa_register_widgets() {
         new \HeroWidget(),
         new \AboutWidget(),
         new \ServicesWidget(),
-        // new \CounterWidget(),
+        new \CounterWidget(),
         // new \BlogWidget(),
         // new \TestimonialWidget(),
         // new \ContactFormWidget(),

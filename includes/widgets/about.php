@@ -12,7 +12,7 @@ class AboutWidget extends Widget_Base {
         return 'About Section'; 
     }
     public function get_icon() { 
-        return 'eicon-info-circle'; 
+        return 'eicon-person'; 
     }
     public function get_categories() { 
         return ['general']; 
