@@ -1,0 +1,165 @@
+/*----------------------------------------*/
+/*  1.10 Offcanvas
+/*----------------------------------------*/
+
+  .body-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99998;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.body-overlay.opened {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+.offcanvas-logo img {
+    max-width: 140px;
+    @media #{$xs}{
+        max-width: 100px;
+    }
+}
+
+.loader img{
+    max-width: 100px;
+}
+
+.notice-logo{
+    max-width: 70px;
+    width: 100%;
+}
+.notice-logo img{
+    width: 100%;
+}
+.offcanvas-area {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 100%;
+    z-index: 99999;
+    padding: min(48px, 8%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    background: var(--st-common-white);
+    overscroll-behavior-y: contain;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+    transition-delay: 0s;
+}
+
+.offcanvas-area.opened {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+// Responsive rules remain unchanged
+@media #{$xss} {
+    .offcanvas-area {
+        padding: 35px 30px;
+    }
+}
+
+@media #{$xs} {
+    .offcanvas-area {
+        width: 100%;
+    }
+}
+
+@media #{$sm} {
+    .offcanvas-area {
+        width: 450px;
+    }
+}
+
+
+.offcanvas-top {
+    margin-bottom: 16px;
+}
+
+.offcanvas-close-btn {
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--st-common-white);
+    width: 40px;
+    height: 40px;
+    background: var(--st-theme-primary);
+    font-size: 20px;
+    @include transition(.3s);
+    border: 1px solid transparent;
+
+    &:hover svg path {
+        stroke: var(--st-theme-primary);
+    }
+
+    &:hover {
+        background: var(--st-common-white);
+        border: 1px solid var(--st-theme-primary);
+    }
+
+    svg {
+        width: 30px;
+    }
+}
+
+.offcanvas-close-btn svg path {
+    @include transition (.3s);
+}
+
+.offcanvas-content {
+    margin-bottom: 32px;
+}
+
+.offcanvas-title.sm {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: var(--st-fw-bold);
+}
+
+.offcanvas-title {
+    margin-bottom: 24px;
+}
+
+
+/*----------------------------------------*/
+/* Mobile css
+  /*----------------------------------------*/
+
+.menu-close {
+    position: absolute;
+    right: 0;
+    top: 11px;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: center;
+    border: 1px solid rgba(1, 15, 28, 0.12);
+
+    @media #{$xs} {
+        top: 7px;
+    }
+}
+
+.menu-close i {
+    transition: all 0.3s;
+}

@@ -1,0 +1,103 @@
+/*----------------------------------------*/
+/*  1.5 Footer-v2
+/*----------------------------------------*/
+
+.footer-v2 {
+    .footer-main-area {
+        border-bottom: 1px solid var(--st-text-body);
+        .main-footer {
+            padding: 0;
+            border: 0;
+        }
+        .border-left {
+            border-left: 1px solid var(--st-text-body);
+            @media(max-width: 991px) {
+                border-top: 1px solid var(--st-text-body);
+                border-left: 0;
+            }
+        }
+        .footer-item {
+            p {
+                margin-top: 32px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+    .footer-left-area {
+        padding-right: 120px;
+        @media #{ $lg } {
+            padding-right: 60px;
+        }
+        @media(max-width: 991px) {
+            padding-right: 0;
+        }
+        .quick-link-area {
+            padding: 0;
+        }
+    }
+    .footer-right-area {
+        padding-left: 120px;
+        @media #{ $lg } {
+            padding-left: 60px;
+        }
+        @media(max-width: 991px) {
+            padding-left: 0;
+        }
+        .contact-info-area {
+            padding: 0;
+            @media #{ $lg, $md } {
+                h2 {
+                    font-size: 40px;
+                }
+                h3 {
+                    font-size: 28px;
+                }
+            }
+            @media #{ $xl } {
+                h3 {
+                    width: 410px; 
+                    overflow-wrap: break-word;
+                }
+            }
+            @media #{ $sm, $xs } {
+                h3 {
+                    font-size: 22px;
+                }
+            }
+            @media(max-width: 410px) {
+                h3 {
+                    width: 250px; 
+                    overflow-wrap: break-word;
+                }
+            }
+        }
+        .contact-info {
+            padding: 60px 0;
+            @media #{ $lg, $md } {
+                padding: 40px 0;
+            }
+            @media #{ $sm, $xs } {
+                padding: 24px 0;
+            }
+        }
+        .contact-info li {
+            a {
+                align-items: center !important;
+                &:hover {
+                    h3 {
+                        color: var(--st-theme-primary)
+                    }
+                }
+            }
+            i {
+                font-size: 36px !important;
+                line-height: 1;
+            }
+        }
+    }
+    .footer-copy-right-area {
+        .copy-right-text {
+            padding: 16px;
+        }
+    }
+}

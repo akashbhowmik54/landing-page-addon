@@ -1,0 +1,277 @@
+/*----------------------------------------*/
+/*  1.8 Header
+/*----------------------------------------*/
+
+.header-top-area {
+    background: var(--st-common-black);
+
+    .left-info-area {
+        ul {
+            li {
+                display: inline-block;
+                margin-right: 40px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        a {
+            color: var(--st-common-white);
+        }
+    }
+
+    .right-language-area {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .select2-container {
+            max-width: 135px !important;
+            width: 100% !important;
+            background: var(--st-common-white);
+            padding: 11px 20px;
+            border-radius: 0;
+        }
+
+        .select2-container--default .select2-selection--single {
+            border: 0;
+            padding: 0;
+            display: flex;
+
+            .select2-selection__arrow {
+                display: none;
+            }
+        }
+
+        .select2-selection {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 13px;
+                right: -30px;
+                width: 24px;
+                height: 24px;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3e%3cpath d='M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z'%3e%3c/path%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-size: contain;
+                transform: translateY(-50%);
+            }
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            padding: 0;
+            color: var(--st-common-black);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+    }
+
+    @media(max-width: 767px) {
+        display: none;
+    }
+}
+
+.header-main-area {
+    background: var(--st-common-white);
+    border: 1px solid var(--st-border-3);
+    padding: 26px 0;
+
+    .logo {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .header-search-form {
+        position: relative;
+        border: 1px solid var(--st-border-3);
+        padding: 11px 12px;
+
+        input {
+            display: inline-block;
+            border: 0;
+            background: transparent;
+            color: var(--st-text-body);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            width: 100%;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: var(--st-text-body);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+            }
+        }
+
+        button {
+            display: inline-block;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 0;
+            width: 24px;
+            height: 24px;
+
+            i {
+                font-size: 22px;
+                line-height: 1;
+                color: var(--st-text-body);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        @media #{$xss} {
+            display: none;
+        }
+
+    }
+
+    .header-offcanvas-menu {
+        margin-left: 40px;
+
+        @media(min-width: 992px) {
+            display: none;
+        }
+
+        @media #{ $xs, $sm } {
+            margin-left: 30px;
+        }
+    }
+
+    .header-offcanvas-menu button {
+        background: none;
+        border: none;
+        outline: none;
+        font-size: 32px;
+    }
+
+    .search-icon {
+        i {
+            font-size: 22px;
+            line-height: 1;
+            color: var(--st-text-body);
+        }
+
+        display: none;
+        @media #{$xss} {
+            display: block;
+        }
+
+    }
+}
+
+//Search Overlay CSS
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .search-form-box {
+        position: relative;
+        background: var(--st-common-white);
+        padding: 40px 32px;
+        border-radius: 0;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+        @media #{$xs} {
+            padding: 40px 15px;
+        }
+
+        .close-search {
+            position: absolute;
+            top: 3px;
+            right: 7px;
+            font-size: 28px;
+            background: transparent;
+            border: none;
+            color: var(--st-common-black);
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+
+            @media #{$xs} {
+                gap: 8px;
+            }
+
+            input {
+                flex: 1;
+                padding: 12px 16px;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 24px;
+                border: 1px solid var(--st-border-3);
+                @include transition (.3s);
+
+                @media #{$xs} {
+                    width: 150px;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: var(--st-text-body);
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+            }
+
+            button[type="submit"] {
+                padding: 12px 20px;
+                border: 1px solid var(--st-border-3);
+                background: transparent;
+
+                i {
+                    font-size: 22px;
+                    line-height: 1;
+                    color: var(--st-text-body);
+                }
+            }
+
+        }
+    }
+}
