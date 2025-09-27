@@ -4,12 +4,31 @@
  * Description: Elementor addon for landing page widgets
  * Version: 1.0
  * Author: Akash Kumar Bhowmik
+ * Text Domain: landing-page-addon
+ * Domain Path: /languages
  */
 
-if ( ! defined('ABSPATH') ) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Include widgets
+function lgpa_check_elementor() {
+    if ( ! did_action( 'elementor/loaded' ) ) {
+        add_action( 'admin_notices', function() {
+            ?>
+            <div class="notice notice-error">
+                <p><?php esc_html_e( 'Landing Page Addon requires Elementor to be installed and activated.', 'landing-page-addon' ); ?></p>
+            </div>
+            <?php
+        });
+        return false;
+    }
+    return true;
+}
+
 function lgpa_register_widgets() {
+    if ( ! lgpa_check_elementor() ) {
+        return;
+    }
+
     require_once(__DIR__ . '/includes/widgets/hero.php');
     require_once(__DIR__ . '/includes/widgets/about.php');
     require_once(__DIR__ . '/includes/widgets/services.php');
@@ -21,7 +40,7 @@ function lgpa_register_widgets() {
     $widgets = [
         new \HeroWidget(),
         new \AboutWidget(),
-        // new \ServicesWidget(),
+        new \ServicesWidget(),
         // new \CounterWidget(),
         // new \BlogWidget(),
         // new \TestimonialWidget(),
@@ -29,10 +48,10 @@ function lgpa_register_widgets() {
     ];
 
     foreach ($widgets as $widget) {
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type($widget);
+        \Elementor\Plugin::instance()->widgets_manager->register( $widget );
     }
 }
-add_action('elementor/widgets/widgets_registered', 'lgpa_register_widgets');
+add_action('elementor/widgets/register', 'lgpa_register_widgets');
 
 // Enqueue styles & scripts
 function lgpa_enqueue_assets() {
@@ -40,3 +59,9 @@ function lgpa_enqueue_assets() {
     wp_enqueue_script('lgpa-landing-js', plugins_url('assets/js/script.js', __FILE__), ['jquery'], false, true);
 }
 add_action('wp_enqueue_scripts', 'lgpa_enqueue_assets');
+
+// Load translations
+function lgpa_load_textdomain() {
+    load_plugin_textdomain( 'landing-page-addon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'lgpa_load_textdomain' );
