@@ -59,14 +59,7 @@
   height: 48px;
 }
 
-.heading h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #111;
-}
-
 .content p {
-  font-size: 15px;
   line-height: 1.7;
   color: #555;
 }
@@ -102,3 +95,4 @@
       margin: 0;
     }
 }
+

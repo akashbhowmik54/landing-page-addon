@@ -1,0 +1,129 @@
+/*----------------------------------------*/
+/*  1.3 Buttons
+/*----------------------------------------*/
+
+// Primary Button 
+.primary-btn {
+    display: inline-flex;
+    gap: 8px;
+	position: relative;
+	background: var(--st-theme-primary);
+	font-weight: var(--st-fw-bold);
+	font-size: var(--st-fz-btn);
+	line-height: var(--st-lh-btn);
+	font-family: var(--st-ff-btn);
+	padding: 12px 40px;
+	z-index: 1;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: var(--st-common-white);
+	&::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		background: var(--st-common-white);
+		z-index: -1;
+		transition: all 0.3s ease-in-out;
+	}
+	i {
+		transition: all 0.3s ease-in-out;
+        font-size: 24px;
+		
+	}
+	&:hover {
+		color: var(--st-theme-primary);
+        border: 1px solid var(--st-theme-primary);
+		&::after {
+			left: 0;
+		}
+		i {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+// Secondary Button 
+.secondary-btn {
+    display: inline-flex;
+    gap: 8px;
+	position: relative;
+	background: var(--st-common-white);
+	font-weight: var(--st-fw-bold);
+	font-size: var(--st-fz-btn);
+	line-height: var(--st-lh-btn);
+	font-family: var(--st-ff-btn);
+	padding: 12px 40px;
+	z-index: 1;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border: 1px solid var(--st-theme-primary);
+    color: var(--st-theme-primary);
+	&::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		background: var(--st-theme-primary);
+		z-index: -1;
+		transition: all 0.3s ease-in-out;
+	}
+	i {
+		transition: all 0.3s ease-in-out;
+        font-size: 24px;
+		
+	}
+	&:hover {
+		color: var(--st-common-white);
+        border: 1px solid var(--st-theme-primary);
+		&::after {
+			left: 0;
+		}
+		i {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+// Rounded Button 
+
+.rounded-btn {
+	background: #08090B80;
+	height: 140px;
+	width: 140px;
+	border: 1px solid var(--st-common-white);
+	border-radius: 50%; 
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media #{$md, $sm, $xs} {
+        display: block;
+        height: 120px;
+        width: 120px;
+    }
+	a {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-weight: var(--st-fw-bold);
+		color: var(--st-common-white);
+		font-size: 16px;
+		line-height: 24px;
+		font-family: var(--st-ff-btn);
+		i {
+			font-weight: var(--st-fw-bold);
+    		font-size: 24px;
+		}
+	}
+}

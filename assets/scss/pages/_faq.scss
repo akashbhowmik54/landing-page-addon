@@ -1,0 +1,76 @@
+/*----------------------------------------*/
+/* 2.11 Faq
+/*----------------------------------------*/
+
+.faq-page {
+    .faq-top {
+        text-align: center;
+
+        .description {
+            max-width: 952px;
+            margin: 0 auto;
+        }
+    }
+}
+
+.faq-bottom {
+
+    .faq-accordion {
+        max-width: 708px;
+        margin: 0 auto;
+    }
+
+    .accordion-item {
+        background: var(--st-common-white);
+        margin-bottom: 32px;
+        border-left: 5px solid var(--st-theme-primary);
+        &:last-of-type {
+            margin-bottom: unset;
+        }
+
+        @media #{$xs} {
+            margin-bottom: 24px;
+        }
+
+    }
+
+    .accordion-header {
+        font-family: var(--st-ff-btn);
+        font-size: 16px;
+        font-weight: var(--st-fw-bold);
+        padding: 20px 27px;
+        cursor: pointer;
+        color: var(--st-heading-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media #{$xs} {
+            padding: 12px 12px 12px 18px;
+        }
+
+        span {
+            width: 100%;
+            padding-right: 12px;
+        }
+        i {
+            font-size: 24px;
+            transform: rotate(0deg);
+            transition: transform 0.2s;
+        }
+
+        &:not(.collapsed) {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .accordion-body {
+        padding: 0 32px 20px 27px;
+        margin-top: -8px;
+
+        @media #{$xs} {
+            padding: 0 20px 12px 18px;
+        }
+    }
+}
