@@ -181,7 +181,7 @@ class HeroWidget extends Widget_Base {
             [
                 'label' => __('Overlay Color', 'landing-page-addon'),
                 'type' => Controls_Manager::COLOR,
-                'default' => 'rgba(0,0,0,0.5)', 
+                'default' => 'rgba(0,0,0,0.1)', 
                 'selectors' => [
                     '{{WRAPPER}} .lgpa-slide::before' => 'background-color: {{VALUE}};',
                 ],
@@ -443,9 +443,12 @@ class HeroWidget extends Widget_Base {
                             <?php if (!empty($slide['slide_btn_text'])) :
                                 $btn_link = $slide['slide_btn_link']['url'] ?? '#';
                                 ?>
-                                <a href="<?php echo esc_url($btn_link); ?>" class="slide-btn">
-                                    <?php echo esc_html($slide['slide_btn_text']); ?>
-                                </a>
+                                <div class="slide-btn-wrapper">
+                                    <a href="<?php echo esc_url($btn_link); ?>" class="slide-btn">
+                                        <?php echo esc_html($slide['slide_btn_text']); ?>
+                                    </a>
+                                </div>
+                                
                             <?php endif; ?>
                         </div>
                     </div>

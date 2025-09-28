@@ -143,13 +143,13 @@
 }
 
 .lgpa-slide {
-    background-size: 110%;
+    /* background-size: 110%; */
     transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, background-size 8s ease-out;
 }
 
-.lgpa-slide.active {
+/* .lgpa-slide.active {
     background-size: 100%;
-}
+} */
 
 .slide-content {
     position: absolute;
