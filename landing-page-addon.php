@@ -44,7 +44,7 @@ function lgpa_register_widgets() {
         new \CounterWidget(),
         new \BlogWidget(),
         new \TestimonialWidget(),
-        // new \ContactFormWidget(),
+        new \ContactFormWidget(),
     ];
 
     foreach ($widgets as $widget) {

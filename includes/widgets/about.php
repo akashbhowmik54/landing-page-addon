@@ -13,7 +13,7 @@ class AboutWidget extends Widget_Base {
         return 'about_widget'; 
     }
     public function get_title() { 
-        return 'About Section'; 
+        return 'ST About'; 
     }
     public function get_icon() { 
         return 'eicon-person'; 
@@ -361,7 +361,7 @@ class AboutWidget extends Widget_Base {
 
                             <?php if ( ! empty( $settings['button_text'] ) ) : ?>
                                 <div class="btn-wrapper">
-                                    <a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="about-button">
+                                    <a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="about-button primary-btn">
                                         <?php echo esc_html( $settings['button_text'] ); ?>
                                     </a>
                                 </div>
