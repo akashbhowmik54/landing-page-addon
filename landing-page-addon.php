@@ -43,7 +43,7 @@ function lgpa_register_widgets() {
         new \ServicesWidget(),
         new \CounterWidget(),
         new \BlogWidget(),
-        // new \TestimonialWidget(),
+        new \TestimonialWidget(),
         // new \ContactFormWidget(),
     ];
 
@@ -58,9 +58,11 @@ function lgpa_enqueue_assets() {
     wp_enqueue_style('lgpa-landing-css', plugins_url('assets/css/style.css', __FILE__));
     wp_enqueue_style('bootstrap-css', plugins_url('assets/css/bootstrap.min.css', __FILE__));
     wp_enqueue_style('sass-css', plugins_url('assets/scss/main.css', __FILE__));
+    wp_enqueue_style('swiper-css', plugins_url('assets/css/swiper.min.css', __FILE__));
 
-    wp_enqueue_script('lgpa-landing-js', plugins_url('assets/js/script.js', __FILE__), ['jquery'], false, true);
+    wp_enqueue_script('lgpa-landing-js', plugins_url('assets/js/script.js', __FILE__), ['jquery', 'swiper-js'], false, true);
     wp_enqueue_script('bootstrap-js', plugins_url('assets/js/bootstrap.min.js', __FILE__), ['jquery'], false, true);
+    wp_enqueue_script('swiper-js', plugins_url('assets/js/swiper.min.js', __FILE__), ['jquery'], false, true);
 }
 add_action('wp_enqueue_scripts', 'lgpa_enqueue_assets');
 
