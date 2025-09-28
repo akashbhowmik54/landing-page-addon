@@ -343,32 +343,40 @@ class AboutWidget extends Widget_Base {
         $settings = $this->get_settings_for_display();
         ?>
         <div class="about-section">
-            <div class="about-content">
-                <?php if ( ! empty( $settings['subtitle'] ) ) : ?>
-                    <h6 class="about-subtitle"><?php echo esc_html( $settings['subtitle'] ); ?></h6>
-                <?php endif; ?>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12">
+                        <div class="about-content">
+                            <?php if ( ! empty( $settings['subtitle'] ) ) : ?>
+                                <h6 class="about-subtitle"><?php echo esc_html( $settings['subtitle'] ); ?></h6>
+                            <?php endif; ?>
 
-                <?php if ( ! empty( $settings['title'] ) ) : ?>
-                    <h2 class="about-title"><?php echo esc_html( $settings['title'] ); ?></h2>
-                <?php endif; ?>
+                            <?php if ( ! empty( $settings['title'] ) ) : ?>
+                                <h2 class="about-title"><?php echo esc_html( $settings['title'] ); ?></h2>
+                            <?php endif; ?>
 
-                <?php if ( ! empty( $settings['description'] ) ) : ?>
-                    <p class="about-description"><?php echo esc_html( $settings['description'] ); ?></p>
-                <?php endif; ?>
+                            <?php if ( ! empty( $settings['description'] ) ) : ?>
+                                <p class="about-description"><?php echo esc_html( $settings['description'] ); ?></p>
+                            <?php endif; ?>
 
-                <?php if ( ! empty( $settings['button_text'] ) ) : ?>
-                    <div class="btn-wrapper">
-                        <a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="about-button">
-                            <?php echo esc_html( $settings['button_text'] ); ?>
-                        </a>
+                            <?php if ( ! empty( $settings['button_text'] ) ) : ?>
+                                <div class="btn-wrapper">
+                                    <a href="<?php echo esc_url( $settings['button_link']['url'] ); ?>" class="about-button">
+                                        <?php echo esc_html( $settings['button_text'] ); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                <?php endif; ?>
-            </div>
-            <div class="about-image">
-                <?php if ( ! empty( $settings['image']['url'] ) ) : ?>
-                    <img src="<?php echo esc_url( $settings['image']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
-                <?php endif; ?>
-            </div>
+                    <div class="col-md-6 col-sm-6 col-12">
+                        <div class="about-image">
+                            <?php if ( ! empty( $settings['image']['url'] ) ) : ?>
+                                <img src="<?php echo esc_url( $settings['image']['url'] ); ?>" alt="<?php echo esc_attr( $settings['title'] ); ?>">
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </div>
         <?php
     }

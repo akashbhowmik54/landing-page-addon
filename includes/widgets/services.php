@@ -316,7 +316,7 @@ class ServicesWidget extends Widget_Base {
 
         ?>
             <section class="services">
-                <div class="container">
+                <div class="container-fluid">
                     <?php if ( ! empty( $settings['section_heading'] ) ) : ?>
                         <h2 class="section-title"><?php echo esc_html( $settings['section_heading'] ); ?></h2>
                     <?php endif; ?>
